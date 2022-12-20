@@ -1,5 +1,5 @@
 # MERN-API-E-COMMERCE
-réalisation  d'un api  pour une vitrines électroniques
+réalisation  d'un api  pour une vitrines électroniques <br>
 ---->Besoins du projet : <br>
 
 -Une page principale avec quelques produits récemment ajoutés (Actualités) .<br>
