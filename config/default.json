@@ -1,3 +1,5 @@
 {
-    "dbURI": "mongodb+srv://oussama:oussama@mern-api-e-commerce.2kla8tj.mongodb.net/?retryWrites=true&w=majority"
+    "dbURI": "mongodb+srv://oussama:oussama@mern-api-e-commerce.2kla8tj.mongodb.net/?retryWrites=true&w=majority",
+    "jwtsecret": "your jwt secret",
+    "StripeAPIKey": "YOUR STRIPE SECRET API KEY"
 }
