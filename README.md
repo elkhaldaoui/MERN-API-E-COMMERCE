@@ -19,17 +19,6 @@ Pour cette raison, ils nous ont commandé, l'équipe de développement, une page
 - Créer, lancer et partager des images Docker on utilisant docker compose.
 - Réaliser le test d'intégration de notre application.
 
-### Installation
-
-Les étapes pour installer votre programme....
-
-Dites ce qu'il faut faire...
-
-_exemple_: Executez la commande ``npm init`` pour commencer l'installation de l'envirennement [...]
-
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
-
 ## Démarrage
 
 Dites comment faire pour lancer votre projet --> npm start
@@ -39,32 +28,107 @@ Dites comment faire pour lancer votre projet --> npm start
 Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
 
 * [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Bootstrap](https:bootstrap.com) - Editeur de textes
-* [Mongodb](https:mongodb.com) - Editeur de textes
-* [ExpressJs](https:expressjs.com) - Editeur de textes
-* [ReactJs](https:reactjs.com) - Editeur de textes
-* [NodeJs](https:nodejs.com) - Editeur de textes
-
-## Contributing
-
-Si vous souhaitez contribuer, lisez le fichier [README.md](https://example.org) pour savoir comment le faire.
-
-## Versions
-Listez les versions ici 
-_exemple :_
-**Dernière version stable :** 5.0
-**Dernière version :** 5.1
-Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
-_(pour le lien mettez simplement l'URL de votre projets suivi de ``/tags``)_
+* [Bootstrap](https:bootstrap.com) - Framework and collection between html and css
+* [Mongodb](https:mongodb.com) -Database for nodejs projects
+* [ExpressJs](https:expressjs.com) 
+-For build backend parte
+* [ReactJs](https:reactjs.com) 
+-For build frentend parte
+* [NodeJs](https:nodejs.com) 
+-Envirennement for work with javascript
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
-* **OUSSAMA ELKHALDAOUI** _alias_ [@outout14](https://github.com/elkhaldaoui/MERN-API-E-COMMERCE/blob/main/README.md)
+* **OUSSAMA ELKHALDAOUI** [@outout14](https://github.com/elkhaldaoui/)
 
-Lisez la liste des [contributeurs](https://github.com/elkhaldaoui/MERN-API-E-COMMERCE/blob/main/README.md) pour voir qui à aidé au projet !
+## Dockerize this e-commerce application using Docker Compose
 
-_(pour le lien mettez simplement l'URL de votre projet suivi de ``/contirubors``)_
+To dockerize this e-commerce application using Docker Compose, you will need to create a Dockerfile for each component of the application (e.g. the server, the React app, and the database) and a docker-compose.yml file to define the services and how they are linked together.
 
-## License
+Here is an example Dockerfile for the server component of the application:<br>
+``FROM node:10
 
-Ce projet est sous licence ``exemple: WTFTPL`` - voir le fichier [LICENSE.md](LICENSE.md) pour plus d'informations
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 5000
+CMD [ "node", "server.js" ]``
+
+And here is an example Dockerfile for the client (React) component of the application:<br>
+
+``FROM node:10
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+EXPOSE 3000
+CMD [ "npm", "start" ]``
+
+For the database component, you can use an existing Docker image for MongoDB, such as mongo:4.2, and specify the necessary environment variables in the docker-compose.yml file.
+
+Here is an example docker-compose.yml file that brings everything together:<br>
+``version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+  db:
+    image: mongo:4.2
+    environment:
+      MONGO_INITDB_ROOT_``
+
+#To build the images and spin up the containers, you can run the following command:
+``docker-compose up``
+
+## Test Uniter
+To add unit tests to your e-commerce application, you can use a testing framework such as Jest. Jest is a popular JavaScript testing framework that works well with React applications, and it is already included as a dependency in the `package.json` file of the client component of the e-commerce application.
+
+To write unit tests for your application, you will need to create test files in the `client/src/__tests__` directory or a subdirectory. The test files should have a `.test.js` or `.spec.js` extension, and they should contain test cases that exercise specific parts of your application code.
+
+Here is an example test case that tests the ``addProduct`` function in the e-commerce application:<br>
+
+`import { addProduct } from '../utils/api';
+
+test('addProduct adds a new product', async () => {
+  const product = { name: 'Test Product', price: 19.99 };
+  const res = await addProduct(product);
+  expect(res.name).toBe('Test Product');
+  expect(res.price).toBe(19.99);
+});`
+
+To run the unit tests, you can use the ``npm test`` command in the client directory. This will run Jest and execute all of the test cases in the `__tests__` directory.
