@@ -52,15 +52,12 @@ Here is an example Dockerfile for the server component of the application:<br>
 WORKDIR /usr/src/app
 
 # Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
-# RUN npm ci --only=production
+- RUN npm ci --only=production
 
-# Bundle app source
+- Bundle app source
 COPY . .
 
 EXPOSE 5000
@@ -72,15 +69,14 @@ And here is an example Dockerfile for the client (React) component of the applic
 
 # Create app directory
 WORKDIR /usr/src/app
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# where available
 COPY package*.json ./
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+RUN npm install<br>
+
+If you are building your code for production<br>
+
+RUN npm ci --only=production<br>
 
 # Bundle app source
 COPY . .
@@ -91,28 +87,28 @@ CMD [ "npm", "start" ]``
 For the database component, you can use an existing Docker image for MongoDB, such as mongo:4.2, and specify the necessary environment variables in the docker-compose.yml file.
 
 Here is an example docker-compose.yml file that brings everything together:<br>
-``version: '3'
-services:
-  server:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
+``version: '3'<br>
+services:<br>
+  server:<br>
+    build:<br>
+      context:<br>
+      dockerfile: Dockerfile<br>
+    ports:<br>
       - "5000:5000"
-    depends_on:
-      - db
-  client:
-    build:
+    depends_on:<br>
+      - db<br>
+  client:<br>
+    build:<br>
       context: client
-      dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
-  db:
-    image: mongo:4.2
-    environment:
+      dockerfile: Dockerfile<br>
+    ports:<br>
+      - "3000:3000"<br>
+  db:<br>
+    image: mongo:4.2<br>
+    environment:<br>
       MONGO_INITDB_ROOT_``
 
-#To build the images and spin up the containers, you can run the following command:
+# To build the images and spin up the containers, you can run the following command:
 ``docker-compose up``
 
 ## Test Uniter
