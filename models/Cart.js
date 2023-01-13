@@ -10,11 +10,11 @@ const CartSchema = new Schema({
             type: String,
         },
         name: String,
-        quantity:{
-            type:Number,
+        quantity: {
+            type: Number,
             required: true,
-            min:[1,'Quantity can not be less then 1.'],
-            default: 1
+            min: [1, 'Quantity can not be less then 1.'],
+            deafult: 1
         },
         price: Number
     }],
