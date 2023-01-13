@@ -1,10 +1,10 @@
 # MERN API E-COMMERCE APPLICATION
 
-_réalisation d'un api pour une vitrines électroniques_
+``réalisation d'un api pour une vitrines électroniques``
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Une petite description du projet : Réalisation d'un api pour une vitrines électroniques <br>
+Une petite description du projet : Réalisation d'un api pour une vitrines électroniques
 
 ## Pour commencer
 
@@ -38,10 +38,9 @@ Entrez les programmes/logiciels/ressources que vous avez utilisé pour développ
 - [NodeJs](https:nodejs.com)
 -Envirennement for work with javascript
 
-## Auteurs
+## Auteur
 
-Listez le(s) auteur(s) du projet ici !
-**OUSSAMA ELKHALDAOUI** [@outout14](https://github.com/elkhaldaoui/)
+**OUSSAMA ELKHALDAOUI** [](https://github.com/elkhaldaoui/)
 
 ## Dockerize this e-commerce application using Docker Compose
 
@@ -95,8 +94,8 @@ For the database component, you can use an existing Docker image for MongoDB, su
 
 Here is an example docker-compose.yml file that brings everything together:
 ``version: '3'<br>
-services:<br>
-  server:<br>
+  services:<br>
+    server:<br>
     build:<br>
       context:<br>
       dockerfile: Dockerfile<br>
@@ -104,16 +103,15 @@ services:<br>
       - "5000:5000"
     depends_on:<br>
       - db<br>
-  client:<br>
+    client:<br>
     build:<br>
-      context: client
-      dockerfile: Dockerfile<br>
+      - context: client
+      - dockerfile: Dockerfile<br>
     ports:<br>
       - "3000:3000"<br>
-  db:<br>
-    image: mongo:4.2<br>
-    environment:<br>
-      MONGO_INITDB_ROOT_``
+    db:<br>
+      - image: mongo:4.2<br>
+      - environment: MONGO_INITDB_ROOT_``
 
 ## To build the images and spin up the containers, you can run the following command
 
