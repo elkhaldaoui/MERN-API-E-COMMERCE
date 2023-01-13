@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# MERN E-COMMERCE APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Une startup orientée vers la création des vitrines électroniques Vous avez actuellement votre site web réalisé sous Wordpress mais la plateforme en question ne répond pas à tous vos besoins présents et futurs. Ils en ont assez de dépendre des plugins et d'attendre toujours des mises à jour qui pourraient provoquer une panne à tout moment.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running the Tests](#running-the-tests)
+- [Built With](#built-with)
+- [Contributing](#contributing)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+In order to run this application, you will need to have the following software installed on your system:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/)
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository to your local machine:
+git clone <https://github.com/your-username/your-repo.git>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate to the root directory of the repository:
+cd your-repo
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install the necessary dependencies:
+npm install
 
-### `npm run eject`
+4. Start the development server:
+npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instructions on how to use the application, including any necessary configuration.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Running the Tests
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Explain how to run the automated tests for this system.
 
-## Learn More
+## Eployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Instructions on how to deploy the application to a live system.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Built With
 
-### Code Splitting
+-MongoDB
+-Express
+-React
+-Node.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contributing
 
-### Analyzing the Bundle Size
+Instructions for how to contribute to the project, including any required coding standards or guidelines.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Versioning
 
-### Making a Progressive Web App
+Explain how versioning is handled for the project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Authors
 
-### Advanced Configuration
+ME OUSSAMA ELKHALDAOUI
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
+Include information about the license for the project.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Acknowledgments
 
-### `npm run build` fails to minify
+Clean Code.
+Utilisation de pattern MVC.
+Respect de cahier des charges.
+Utilisation de fichier config.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## I hope this template is helpful for your MERN e-commerce application! Let me know if you have any questions or need further assistance
