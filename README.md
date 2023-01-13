@@ -1,4 +1,5 @@
 # MERN API E-COMMERCE APPLICATION
+
 _réalisation d'un api pour une vitrines électroniques_
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
@@ -27,34 +28,38 @@ Dites comment faire pour lancer votre projet --> npm start
 
 Entrez les programmes/logiciels/ressources que vous avez utilisé pour développer votre projet
 
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Bootstrap](https:bootstrap.com) - Framework and collection between html and css
-* [Mongodb](https:mongodb.com) -Database for nodejs projects
-* [ExpressJs](https:expressjs.com) 
+- [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
+- [Bootstrap](https:bootstrap.com) - Framework and collection between html and css
+- [Mongodb](https:mongodb.com) -Database for nodejs projects
+- [ExpressJs](https:expressjs.com)
 -For build backend parte
-* [ReactJs](https:reactjs.com) 
+- [ReactJs](https:reactjs.com)
 -For build frentend parte
-* [NodeJs](https:nodejs.com) 
+- [NodeJs](https:nodejs.com)
 -Envirennement for work with javascript
 
 ## Auteurs
+
 Listez le(s) auteur(s) du projet ici !
-* **OUSSAMA ELKHALDAOUI** [@outout14](https://github.com/elkhaldaoui/)
+**OUSSAMA ELKHALDAOUI** [@outout14](https://github.com/elkhaldaoui/)
 
 ## Dockerize this e-commerce application using Docker Compose
 
 To dockerize this e-commerce application using Docker Compose, you will need to create a Dockerfile for each component of the application (e.g. the server, the React app, and the database) and a docker-compose.yml file to define the services and how they are linked together.
 
-Here is an example Dockerfile for the server component of the application:<br>
+Here is an example Dockerfile for the server component of the application:
 ``FROM node:10
 
-# Create app directory
+## Create app directory
+
 WORKDIR /usr/src/app
 
-# Install app dependencies
+## Install app dependencies
 
 RUN npm install
-# If you are building your code for production
+
+## If you are building your code for production
+
 - RUN npm ci --only=production
 
 - Bundle app source
@@ -63,22 +68,24 @@ COPY . .
 EXPOSE 5000
 CMD [ "node", "server.js" ]``
 
-And here is an example Dockerfile for the client (React) component of the application:<br>
+And here is an example Dockerfile for the client (React) component of the application:
 
-``FROM node:10
+FROM node:10
 
-# Create app directory
+## Create derectoey
+
 WORKDIR /usr/src/app
-# where available
-COPY package*.json ./
 
-RUN npm install<br>
+## where available
 
-If you are building your code for production<br>
+- RUN npm install
 
-RUN npm ci --only=production<br>
+- If you are building your code for production :
 
-# Bundle app source
+-> RUN npm ci --only=production
+
+## Bundle app source
+
 COPY . .
 
 EXPOSE 3000
@@ -86,7 +93,7 @@ CMD [ "npm", "start" ]``
 
 For the database component, you can use an existing Docker image for MongoDB, such as mongo:4.2, and specify the necessary environment variables in the docker-compose.yml file.
 
-Here is an example docker-compose.yml file that brings everything together:<br>
+Here is an example docker-compose.yml file that brings everything together:
 ``version: '3'<br>
 services:<br>
   server:<br>
@@ -108,15 +115,17 @@ services:<br>
     environment:<br>
       MONGO_INITDB_ROOT_``
 
-# To build the images and spin up the containers, you can run the following command:
+## To build the images and spin up the containers, you can run the following command
+
 ``docker-compose up``
 
 ## Test Uniter
+
 To add unit tests to your e-commerce application, you can use a testing framework such as Jest. Jest is a popular JavaScript testing framework that works well with React applications, and it is already included as a dependency in the `package.json` file of the client component of the e-commerce application.
 
 To write unit tests for your application, you will need to create test files in the `client/src/__tests__` directory or a subdirectory. The test files should have a `.test.js` or `.spec.js` extension, and they should contain test cases that exercise specific parts of your application code.
 
-Here is an example test case that tests the ``addProduct`` function in the e-commerce application:<br>
+Here is an example test case that tests the ``addProduct`` function in the e-commerce application:
 
 `import { addProduct } from '../utils/api';
 
@@ -127,4 +136,4 @@ test('addProduct adds a new product', async () => {
   expect(res.price).toBe(19.99);
 });`
 
-To run the unit tests, you can use the ``npm test`` command in the client directory. This will run Jest and execute all of the test cases in the `__tests__` directory.
+``To run the unit tests, you can use the 'npm test' command in the client directory. This will run Jest and execute all of the test cases in the '__tests__' directory.``
